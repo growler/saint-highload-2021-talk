@@ -1,0 +1,567 @@
+TLC2 Version 2.16 of Day Month 20?? (rev: 294e2ae)
+Running breadth-first search Model-Checking with fp 95 and seed -604149346242296333 with 4 workers on 8 cores with 3641MB heap and 64MB offheap memory [pid: 19501] (Mac OS X 10.15.7 x86_64, Oracle Corporation 15 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/growler/Projects/talk-shl-2021/talk/example/v06/CallHistory.tla
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-9448453984109316902/Sequences.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-9448453984109316902/Integers.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-9448453984109316902/TLC.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-9448453984109316902/Naturals.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-9448453984109316902/FiniteSets.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module CallHistory
+Starting... (2021-09-15 20:53:02)
+Implied-temporal checking--satisfiability problem has 2 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2021-09-15 20:53:02.
+Progress(33) at 2021-09-15 20:53:04: 32,226 states generated, 17,337 distinct states found, 0 states left on queue.
+Checking 2 branches of temporal properties for the complete state space with 34674 total distinct states at (2021-09-15 20:53:04)
+Error: Temporal properties were violated.
+
+Error: The following behavior constitutes a counter-example:
+
+State 1: <Initial predicate>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = <<>>
+/\ crashes = 0
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallSetup" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 1
+/\ shutdownProcessor = FALSE
+/\ queue = <<>>
+/\ commited = 0
+
+State 2: <CallSetup line 130, col 20 to line 134, col 64 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = <<>>
+/\ crashes = 0
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 1
+/\ shutdownProcessor = FALSE
+/\ queue = <<[id |-> "call-2", action |-> "setup"]>>
+/\ commited = 0
+
+State 3: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = <<>>
+/\ crashes = 0
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 1
+/\ shutdownProcessor = FALSE
+/\ queue = <<[id |-> "call-2", action |-> "setup"]>>
+/\ commited = 0
+
+State 4: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = <<[id |-> "call-2", action |-> "setup"]>>
+/\ commited = 0
+
+State 5: <CallSetup line 130, col 20 to line 134, col 64 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "CallComplete" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = <<[id |-> "call-2", action |-> "setup"], [id |-> "call-1", action |-> "setup"]>>
+/\ commited = 0
+
+State 6: <CallComplete line 136, col 23 to line 140, col 67 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"] >>
+/\ commited = 0
+
+State 7: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "CallComplete" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"] >>
+/\ commited = 0
+
+State 8: <CallComplete line 136, col 23 to line 140, col 67 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"] >>
+/\ commited = 0
+
+State 9: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-1" :> [offset |-> 2] @@ "call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 3
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"] >>
+/\ commited = 0
+
+State 10: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<>>
+/\ processed = {}
+/\ wip = ("call-1" :> [offset |-> 2] @@ "call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 3
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"] >>
+/\ commited = 0
+
+State 11: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 4
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"] >>
+/\ commited = 0
+
+State 12: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Crash" )
+/\ offset = 4
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"] >>
+/\ commited = 0
+
+State 13: <CallSetup line 130, col 20 to line 134, col 64 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallComplete" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Crash" )
+/\ offset = 4
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"] >>
+/\ commited = 0
+
+State 14: <CallComplete line 136, col 23 to line 140, col 67 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 0
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Crash" )
+/\ offset = 4
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 15: <Crash line 180, col 10 to line 186, col 69 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = <<>>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 1
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 16: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = <<>>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 1
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 17: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 18: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 2
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 19: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = ("call-1" :> [offset |-> 2] @@ "call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "SignalShutdown" @@
+  "Processor" :> "Process" )
+/\ offset = 3
+/\ shutdownProcessor = FALSE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 20: <SignalShutdown line 144, col 19 to line 149, col 52 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = ("call-1" :> [offset |-> 2] @@ "call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Process" )
+/\ offset = 3
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 21: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1">>
+/\ processed = {}
+/\ wip = ("call-1" :> [offset |-> 2] @@ "call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 3
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 22: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1", "call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Process" )
+/\ offset = 4
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 23: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1", "call-1">>
+/\ processed = {2, 3}
+/\ wip = ("call-2" :> [offset |-> 1])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 4
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 0
+
+State 24: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2">>
+/\ processed = {1, 2, 3, 4}
+/\ wip = << >>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Process" )
+/\ offset = 5
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 4
+
+State 25: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2">>
+/\ processed = {1, 2, 3, 4}
+/\ wip = << >>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 5
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 4
+
+State 26: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2">>
+/\ processed = {1, 2, 3, 4}
+/\ wip = ("call-3" :> [offset |-> 5])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Process" )
+/\ offset = 6
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 4
+
+State 27: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2">>
+/\ processed = {1, 2, 3, 4}
+/\ wip = ("call-3" :> [offset |-> 5])
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "ProcessCDR" )
+/\ offset = 6
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 4
+
+State 28: <ProcessCDR line 163, col 15 to line 178, col 66 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2", "call-3">>
+/\ processed = {1, 2, 3, 4, 5, 6}
+/\ wip = << >>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Process" )
+/\ offset = 7
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 6
+
+State 29: <Process line 153, col 12 to line 161, col 56 of module CallHistory>
+/\ store = <<"call-1", "call-1", "call-2", "call-3">>
+/\ processed = {1, 2, 3, 4, 5, 6}
+/\ wip = << >>
+/\ crashes = 1
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Shutdown" :> "Done" @@
+  "Processor" :> "Done" )
+/\ offset = 7
+/\ shutdownProcessor = TRUE
+/\ queue = << [id |-> "call-2", action |-> "setup"],
+   [id |-> "call-1", action |-> "setup"],
+   [id |-> "call-1", action |-> "complete"],
+   [id |-> "call-2", action |-> "complete"],
+   [id |-> "call-3", action |-> "setup"],
+   [id |-> "call-3", action |-> "complete"] >>
+/\ commited = 6
+
+State 30: Stuttering
+Finished checking temporal properties in 00s at 2021-09-15 20:53:04
+32226 states generated, 17337 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 33.
+Finished in 02s at (2021-09-15 20:53:04)

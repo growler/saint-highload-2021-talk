@@ -1,0 +1,78 @@
+TLC2 Version 2.16 of Day Month 20?? (rev: 294e2ae)
+Running breadth-first search Model-Checking with fp 57 and seed -4275211297441443609 with 4 workers on 8 cores with 3641MB heap and 64MB offheap memory [pid: 19471] (Mac OS X 10.15.7 x86_64, Oracle Corporation 15 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/growler/Projects/talk-shl-2021/talk/example/v00/CallHistory.tla
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-10148157269131831921/Sequences.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-10148157269131831921/Integers.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-10148157269131831921/TLC.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-10148157269131831921/Naturals.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-10148157269131831921/FiniteSets.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module CallHistory
+Starting... (2021-09-15 20:52:52)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2021-09-15 20:52:53.
+Progress(5) at 2021-09-15 20:52:53: 41 states generated, 16 distinct states found, 0 states left on queue.
+Checking temporal properties for the complete state space with 16 total distinct states at (2021-09-15 20:52:53)
+Error: Temporal properties were violated.
+
+Error: The following behavior constitutes a counter-example:
+
+State 1: <Initial predicate>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallSetup" @@
+  "call-3" :> "CallSetup" @@
+  "Processor" :> "Process" )
+/\ queue = <<>>
+
+State 2: <Process line 66, col 12 to line 68, col 42 of module CallHistory>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "CallSetup" @@
+  "call-2" :> "CallSetup" @@
+  "call-3" :> "CallSetup" @@
+  "Processor" :> "ProcessCDR" )
+/\ queue = <<>>
+
+State 3: <CallSetup line 59, col 20 to line 62, col 50 of module CallHistory>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "CallSetup" @@
+  "call-3" :> "CallSetup" @@
+  "Processor" :> "ProcessCDR" )
+/\ queue = <<>>
+
+State 4: <CallSetup line 59, col 20 to line 62, col 50 of module CallHistory>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "CallSetup" @@
+  "Processor" :> "ProcessCDR" )
+/\ queue = <<>>
+
+State 5: <CallSetup line 59, col 20 to line 62, col 50 of module CallHistory>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Processor" :> "ProcessCDR" )
+/\ queue = <<>>
+
+State 6: <ProcessCDR line 70, col 15 to line 73, col 45 of module CallHistory>
+/\ store = <<>>
+/\ pc = ( "call-1" :> "Done" @@
+  "call-2" :> "Done" @@
+  "call-3" :> "Done" @@
+  "Processor" :> "Process" )
+/\ queue = <<>>
+
+Back to state 5: <Process line 66, col 12 to line 68, col 42 of module CallHistory>
+
+Finished checking temporal properties in 00s at 2021-09-15 20:52:53
+41 states generated, 16 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 5.
+Finished in 00s at (2021-09-15 20:52:53)

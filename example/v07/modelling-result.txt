@@ -1,0 +1,29 @@
+TLC2 Version 2.16 of Day Month 20?? (rev: 294e2ae)
+Running breadth-first search Model-Checking with fp 37 and seed -6121231300071178605 with 4 workers on 8 cores with 3641MB heap and 64MB offheap memory [pid: 19507] (Mac OS X 10.15.7 x86_64, Oracle Corporation 15 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /Users/growler/Projects/talk-shl-2021/talk/example/v07/CallHistory.tla
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-14364832600765129536/Sequences.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-14364832600765129536/Integers.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Integers.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-14364832600765129536/TLC.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-14364832600765129536/Naturals.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /private/var/folders/33/4y6j_p4128d3066z87rnq5b00000gn/T/tlc-14364832600765129536/FiniteSets.tla (jar:file:/Users/growler/bin/TLA/tla2tools.294e2ae.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module CallHistory
+Starting... (2021-09-15 20:53:05)
+Implied-temporal checking--satisfiability problem has 2 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2021-09-15 20:53:05.
+Progress(29) at 2021-09-15 20:53:06: 29,490 states generated, 15,435 distinct states found, 0 states left on queue.
+Checking 2 branches of temporal properties for the complete state space with 30870 total distinct states at (2021-09-15 20:53:06)
+Finished checking temporal properties in 00s at 2021-09-15 20:53:06
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 1.2E-11
+29490 states generated, 15435 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 29.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 5 and the 95th percentile is 2).
+Finished in 01s at (2021-09-15 20:53:06)

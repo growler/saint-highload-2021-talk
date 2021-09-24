@@ -1,0 +1,14 @@
+.vscode/
+*.toolbox/
+states/
+playground/
+tmp/
+states/
+.latex-cache/
+*.old
+*.out
+*.code-workspace
+slide.tex
+slide.pdf
+cut.tex
+cut.pdf
